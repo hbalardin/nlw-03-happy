@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiArrowRight, FiPlus } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
@@ -8,7 +8,24 @@ import mapMarkerImg from '../images/map-marker.svg';
 import '../styles/pages/orphanages-map.css';
 import mapIcon from '../utils/mapIcon';
 
+import api from '../services/api';
+
+interface Orphanage {
+  id: number;
+  latitude: number;
+  longitude: number;
+  name: string;
+}
+
 function OrphanagesMap() {
+  const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
+
+  useEffect(() => {
+    api.get('/orphanages').then(response => {
+      setOrphanages(response.data);
+    });
+  }, []);
+
   return (
     <div id="page-map">
       <aside>
@@ -38,22 +55,28 @@ function OrphanagesMap() {
           }
         />
 
-        <Marker icon={mapIcon} position={[-29.6395003, -51.0076926]}>
-          <Popup
-            closeButton={false}
-            minWidth={240}
-            maxWidth={240}
-            className="map-popup"
+        {orphanages.map(orphanage => (
+          <Marker
+            key={orphanage.id}
+            icon={mapIcon}
+            position={[orphanage.latitude, orphanage.longitude]}
           >
-            Lar das meninas
-            <Link to="/">
-              <FiArrowRight size={20} color="#fff" />
-            </Link>
-          </Popup>
-        </Marker>
+            <Popup
+              closeButton={false}
+              minWidth={240}
+              maxWidth={240}
+              className="map-popup"
+            >
+              {orphanage.name}
+              <Link to={`orphanages/${orphanage.id}`}>
+                <FiArrowRight size={20} color="#fff" />
+              </Link>
+            </Popup>
+          </Marker>
+        ))}
       </Map>
 
-      <Link to="/orphanages/1" className="create-orphanage">
+      <Link to="/orphanages/create" className="create-orphanage">
         <FiPlus size={32} color="#fff" />
       </Link>
     </div>
