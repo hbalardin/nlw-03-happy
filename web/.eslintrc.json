@@ -43,7 +43,8 @@
     ],
     "prettier/prettier": "error",
     "no-use-before-define": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "jsx-a11y/label-has-associated-control": "off"
   },
   "settings": {
     "import/resolver": {
