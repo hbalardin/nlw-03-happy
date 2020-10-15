@@ -3,7 +3,7 @@ import { Map, Marker, TileLayer } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
 import { useHistory } from 'react-router-dom';
 
-import { FiPlus } from 'react-icons/fi';
+import { FiPlus, FiX } from 'react-icons/fi';
 
 import api from '../services/api';
 
@@ -47,6 +47,20 @@ export default function CreateOrphanage() {
     );
 
     setPreviewImages(selectedImagesPreview);
+  }
+
+  function handleRemoveImage(index: number) {
+    const updatedImagePreview = previewImages.filter(
+      (image, compareIndex) => index !== compareIndex,
+    );
+
+    setPreviewImages(updatedImagePreview);
+
+    const updatedImages = images.filter(
+      (image, compareIndex) => index !== compareIndex,
+    );
+
+    setImages(updatedImages);
   }
 
   async function handleSubmit(event: FormEvent) {
@@ -129,8 +143,14 @@ export default function CreateOrphanage() {
               <label htmlFor="images">Fotos</label>
 
               <div className="images-container">
-                {previewImages.map(imageUrl => (
-                  <img key={imageUrl} alt={name} src={imageUrl} />
+                {previewImages.map((imageUrl, index) => (
+                  <div key={imageUrl}>
+                    {/* eslint-disable-next-line */}
+                    <button type="button" onClick={() => handleRemoveImage(index)}>
+                      <FiX size={20} color="#F8659E" />
+                    </button>
+                    <img alt={name} src={imageUrl} />
+                  </div>
                 ))}
 
                 <label htmlFor="image[]" className="new-image">
@@ -197,5 +217,3 @@ export default function CreateOrphanage() {
     </div>
   );
 }
-
-// return `https://a.tile.openstreetmap.org/${z}/${x}/${y}.png`;
