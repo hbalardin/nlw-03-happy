@@ -1,10 +1,12 @@
 import Image from '../models/Image';
 
+const ip = '192.168.3.8';
+
 export default {
   render(image: Image) {
     return {
       id: image.id,
-      url: `http://localhost:3333/uploads/${image.path}`,
+      url: `http://${ip}:3333/uploads/${image.path}`,
     };
   },
 
