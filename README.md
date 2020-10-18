@@ -1,7 +1,6 @@
 <!-- título -->
-<h1 style="display: flex; align-items: center; justify-content: center">
-  <img alt="Happy" title="Happy" src="./github/icon.svg" style="margin-right: 12px;"/>
-  Happy
+<h1 align="center">
+  😊 Happy
 </h1>
 
 <!-- descrição -->
@@ -18,7 +17,7 @@
 </h1>
 
 <!-- status -->
-<h3 align="center"><b>Status: Em andamento 👷</b></h3>
+<p align="center"><b>Status: Concluído ✅</b></p>
 
 <!-- badges -->
 <p align="center">
@@ -51,15 +50,20 @@ O objetivo do **Happy** é tornar as visitas a orfanatos mais acessíveis, propo
 
 Este projeto foi desenvolvido durante a terceira edição da **NLW (Next Level Week)**. 
 
-A **NLW** é um evento online de uma semana,  disponibilizado pela **RocketSeat**, focado em por a mão na massa. O conteúdo fica disponível apenas durante o evento.
+A **NLW** é um evento online de uma semana, disponibilizado pela **RocketSeat**, focado em por a mão na massa. O conteúdo fica disponível apenas durante o evento.
 
 ---
 
 ## 🔝 Funcionalidades
 
-- Cadastrar um novo orfanato.
-- Listar os orfanatos próximos de sua região.
-- Criar rota até um orfanato via Google Maps.
+- Cadastrar orfanatos.
+- Listar orfanatos no mapa.
+- Criar rota do seu local até um orfanato via Google Maps.
+
+!-- gifs -->
+<p align="center">
+  <img width="60%" alt="WebDemonstration" title="WebDemonstration" src="./github/webdemonstration.gif">
+</p>
 
 ---
 
@@ -71,6 +75,7 @@ Estas são as principais tecnologias utilizadas na construção do projeto:
 - [Node.js](https://nodejs.org/en/)
 - [ReactJS](https://reactjs.org/)
 - [React Native](https://reactnative.dev/)
+- [Expo](https://expo.io/)
 
 ---
 
@@ -113,14 +118,11 @@ cd ..
 
 ### 💾 Rodando o servidor (back-end)
 
-Antes de rodar o servidor pela primeira vez, você precisa criar o banco de dados.
+Para que as aplicação web e mobile funcionem corretamentem, o back-end precisa estar rodando.
 
 ```bash
 # Vá à pasta backend:
 cd backend
-
-# Crie o banco de dados:
-yarn typeorm migration:run
 
 # Execute o backend em modo de desenvolvimento:
 yarn dev
@@ -143,9 +145,43 @@ Caso a página não abrir automaticamente, acesse: http://localhost:3000
 
 ---
 
+### 📱 Rodando o aplicativo (mobile)
+
+1. Instale o aplicativo **expo** em seu smartphone ([IOS](https://apps.apple.com/br/app/expo-client/id982107779) ou [Android](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR)).
+2. Execute a aplicação:
+
+```bash
+# Vá à pasta mobile:
+cd mobile
+
+# Execute o aplicativo em modo de desenvolvimento:
+yarn start
+
+# Caso a página do expo não abrir automaticamente, acesse: http://localhost:19002
+```
+
+3. Abra o aplicativo **expo** em seu smartphone e escaneie o código QR da página do expo.
+
+- PS: Para o aplicativo funcionar, é preciso [configurar o projeto com o IP da sua máquina](#-configurando-ip).
+
+---
+
+#### ⚙️ Configurando IP
+
+<p align="center">
+  <img width="60%" alt="IPDemonstraction" title="IPDemonstration" src="./github/ipdemonstration.gif">
+</p>
+
+Como no gif acima, substitua o **"localhost"** pelo **endereço IP da sua máquina** nestes arquivos:
+
+1. mobile -> src -> config -> ip.ts
+2. server -> src -> config -> ip.ts
+
+---
+
 ## 📋 Licença
 
-Esse repositório está sobe a licença [MIT](https://github.com/hbalardin/nlw-03-happy/blob/master/LICENSE.md).
+Esse repositório está sob a licença [MIT](https://github.com/hbalardin/nlw-03-happy/blob/master/LICENSE.md).
 
 ---
 
@@ -156,4 +192,4 @@ Desenvolvido por [Henrique Balardin](https://www.linkedin.com/in/hbalardin).
 
 ## 🚩 Versões do README
 
-- [Português 🇧🇷](https://github.com/hbalardin/nlw-03-happy/blob/master/README.md) | [Inglês 🇺🇸 (soon)](https://github.com/hbalardin/nlw-03-happy/blob/master/README-en.md)
+- [Português 🇧🇷](https://github.com/hbalardin/nlw-03-happy/blob/master/README.md) | [Inglês 🇺🇸](https://github.com/hbalardin/nlw-03-happy/blob/master/README-en.md)
