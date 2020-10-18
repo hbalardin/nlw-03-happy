@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ip = '192.168.3.8';
+import ip from '../config/ip';
 
 const api = axios.create({
   baseURL: `http://${ip}:3333`,

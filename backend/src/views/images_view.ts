@@ -1,6 +1,6 @@
 import Image from '../models/Image';
 
-const ip = '192.168.3.8';
+import ip from '../config/ip';
 
 export default {
   render(image: Image) {
