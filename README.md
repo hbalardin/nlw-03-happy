@@ -60,7 +60,7 @@ A **NLW** é um evento online de uma semana, disponibilizado pela **RocketSeat**
 - Listar orfanatos no mapa.
 - Criar rota do seu local até um orfanato via Google Maps.
 
-!-- gifs -->
+<!-- gifs -->
 <p align="center">
   <img width="60%" alt="WebDemonstration" title="WebDemonstration" src="./github/webdemonstration.gif">
 </p>
